@@ -11,8 +11,18 @@ config_version=5
 [application]
 
 config/name="up_dog"
-config/features=PackedStringArray("4.3", "GL Compatibility")
+config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "yellow",
+"res://globals/": "purple",
+"res://resources/": "pink",
+"res://scenes/": "blue",
+"res://scripts/": "green"
+}
 
 [rendering]
 
