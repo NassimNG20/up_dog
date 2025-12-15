@@ -1,3 +1,55 @@
-[gd_scene format=3 uid="uid://ctdmn1p2nso5w"]
+[gd_scene load_steps=5 format=3 uid="uid://ctdmn1p2nso5w"]
+
+[ext_resource type="Texture2D" uid="uid://cj5boxn577qh5" path="res://icon.svg" id="1_w5aja"]
+[ext_resource type="PackedScene" uid="uid://cdv8oci8fr3mx" path="res://scenes/main_player/player.tscn" id="2_onqr8"]
+[ext_resource type="PackedScene" uid="uid://2c73c2rxlu1x" path="res://scenes/ennemies/ennemie_simple.tscn" id="3_bw6k5"]
+[ext_resource type="PackedScene" uid="uid://cfb1n3vyvkj3a" path="res://scenes/camera/player_camera_2d.tscn" id="3_ycayy"]
 
 [node name="game_scene" type="Node2D"]
+
+[node name="player_camera_2D" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_ycayy")]
+position = Vector2(-90, -56)
+target = NodePath("../Player")
+
+[node name="Player" parent="." instance=ExtResource("2_onqr8")]
+position = Vector2(-90, -56)
+
+[node name="Ennemie_simple" parent="." instance=ExtResource("3_bw6k5")]
+position = Vector2(-37, -127)
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(501, -61.000008)
+scale = Vector2(0.6875, 6.484375)
+texture = ExtResource("1_w5aja")
+
+[node name="Icon2" type="Sprite2D" parent="."]
+position = Vector2(-677, -75)
+scale = Vector2(1, 6.21875)
+texture = ExtResource("1_w5aja")
+
+[node name="Icon3" type="Sprite2D" parent="."]
+position = Vector2(-83.5, -403)
+scale = Vector2(10.5390625, 1)
+texture = ExtResource("1_w5aja")
+
+[node name="Icon4" type="Sprite2D" parent="."]
+position = Vector2(-71.99999, 267)
+scale = Vector2(9.734375, 0.421875)
+texture = ExtResource("1_w5aja")
+
+[node name="Icon5" type="Sprite2D" parent="."]
+position = Vector2(222.99998, -6.000001)
+scale = Vector2(0.484375, 0.484375)
+texture = ExtResource("1_w5aja")
+
+[node name="Icon6" type="Sprite2D" parent="."]
+position = Vector2(-429, -215)
+texture = ExtResource("1_w5aja")
+
+[node name="Icon7" type="Sprite2D" parent="."]
+position = Vector2(236, -212)
+texture = ExtResource("1_w5aja")
+
+[node name="Icon8" type="Sprite2D" parent="."]
+position = Vector2(-269, 42)
+texture = ExtResource("1_w5aja")

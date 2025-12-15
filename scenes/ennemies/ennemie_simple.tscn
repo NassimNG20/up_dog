@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://2c73c2rxlu1x"]
+
+[ext_resource type="Script" uid="uid://c5c3ny6l4fiar" path="res://scripts/ennemies/ennemie_container.gd" id="1_galhy"]
+[ext_resource type="Texture2D" uid="uid://cj5boxn577qh5" path="res://icon.svg" id="2_rk54q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_galhy"]
+
+[node name="Ennemie_simple" type="CharacterBody2D"]
+script = ExtResource("1_galhy")
+
+[node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(0.14453126, 0.14453126)
+texture = ExtResource("2_rk54q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_galhy")
