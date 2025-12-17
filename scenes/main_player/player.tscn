@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cdv8oci8fr3mx"]
 
-[ext_resource type="Script" path="res://scripts/main_player/player.gd" id="1_cx6sm"]
+[ext_resource type="Script" uid="uid://d2bkdnhi71gyh" path="res://scripts/main_player/player.gd" id="1_cx6sm"]
 [ext_resource type="Texture2D" uid="uid://cj5boxn577qh5" path="res://icon.svg" id="1_r5asd"]
 [ext_resource type="Resource" uid="uid://cpqq3skrfy6ay" path="res://resources/main_player/player_res.tres" id="2_m355v"]
 
@@ -16,3 +16,10 @@ texture = ExtResource("1_r5asd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_m355v")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -8.0
+offset_top = -28.0
+offset_right = 8.0
+offset_bottom = -11.0
+text = "20"

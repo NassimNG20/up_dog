@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
 
 #var player_movements = Vector2.ZERO
@@ -27,3 +27,11 @@ func _physics_process(delta: float) -> void:
 
 	
 	move_and_slide()
+@onready var label: Label = $Label
+
+func player_hit():
+	if player_res.health > 0:
+		player_res.health -= 1
+		label.text = str(player_res.health)
+	else:
+		label.text = "player dead"

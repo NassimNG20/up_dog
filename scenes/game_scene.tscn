@@ -17,7 +17,6 @@ position = Vector2(-90, -56)
 
 [node name="Ennemie_simple" parent="." instance=ExtResource("3_bw6k5")]
 position = Vector2(744, -280)
-smooth_speed = 200.0
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(501, -61)
@@ -58,3 +57,4 @@ texture = ExtResource("1_w5aja")
 
 [node name="Enemy_spawner" parent="." instance=ExtResource("5_y3j0m")]
 enemy_scene = ExtResource("3_bw6k5")
+spawn_delay = 0.1
