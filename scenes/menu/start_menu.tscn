@@ -1,4 +1,19 @@
-[gd_scene format=3 uid="uid://5fbr28jriqk0"]
+[gd_scene load_steps=9 format=3 uid="uid://5fbr28jriqk0"]
+
+[ext_resource type="Texture2D" uid="uid://dv50c21p8o08s" path="res://assets/bgimage.png" id="1_idqd0"]
+[ext_resource type="Script" uid="uid://51f8e4qmxibp" path="res://scripts/main_menu/start_menu.gd" id="1_r0pvr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_idqd0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r0pvr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j28ev"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r03tk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ougr1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hqr2w"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -7,6 +22,33 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_r0pvr")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_idqd0")
+expand_mode = 1
+flip_h = true
+metadata/_edit_lock_ = true
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -224.0
+offset_top = 128.0
+offset_right = 230.0
+offset_bottom = 255.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.8745098, 0.76862746, 0.44313726, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 126
+text = "UP-DOG"
+metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -19,25 +61,65 @@ offset_right = 527.0
 offset_bottom = -72.0
 grow_vertical = 0
 theme_override_constants/separation = 20
+metadata/_edit_lock_ = true
 
 [node name="Start" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_top = NodePath("../Quit")
+theme_override_colors/font_color = Color(0, 17.201862, 17.201862, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.15686275, 0.20784314, 0.32941177, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_idqd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_r0pvr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_j28ev")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_r03tk")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ougr1")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hqr2w")
 text = "Start"
 flat = true
-autowrap_mode = 3
 
 [node name="Settings" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 17.201862, 17.201862, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.15686275, 0.20784314, 0.32941177, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_idqd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_r0pvr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_j28ev")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_r03tk")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ougr1")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hqr2w")
 disabled = true
 text = "Settings"
 flat = true
-autowrap_mode = 3
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_bottom = NodePath("../Start")
+theme_override_colors/font_color = Color(0, 17.201862, 17.201862, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.15686275, 0.20784314, 0.32941177, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_idqd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_r0pvr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_j28ev")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_r03tk")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ougr1")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hqr2w")
 text = "Quit"
 flat = true
-autowrap_mode = 3
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
