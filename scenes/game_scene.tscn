@@ -10,51 +10,68 @@
 
 [node name="player_camera_2D" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_ycayy")]
 position = Vector2(-90, -56)
+zoom = Vector2(2, 2)
 target = NodePath("../Player")
+
+[node name="enemies" type="Label" parent="player_camera_2D"]
+offset_left = -258.0
+offset_top = -129.0
+offset_right = -134.0
+offset_bottom = -112.0
+text = "enemies num = 0"
 
 [node name="Player" parent="." instance=ExtResource("2_onqr8")]
 position = Vector2(-90, -56)
 
 [node name="Ennemie_simple" parent="." instance=ExtResource("3_bw6k5")]
 position = Vector2(744, -280)
+speed = 100.0
 
 [node name="Icon" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(501, -61)
 scale = Vector2(0.6875, 6.48438)
 texture = ExtResource("1_w5aja")
 
 [node name="Icon2" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-677, -75)
 scale = Vector2(1, 6.21875)
 texture = ExtResource("1_w5aja")
 
 [node name="Icon3" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-83.5, -403)
 scale = Vector2(10.5391, 1)
 texture = ExtResource("1_w5aja")
 
 [node name="Icon4" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-72, 267)
 scale = Vector2(9.73438, 0.421875)
 texture = ExtResource("1_w5aja")
 
 [node name="Icon5" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(223, -6)
 scale = Vector2(0.484375, 0.484375)
 texture = ExtResource("1_w5aja")
 
 [node name="Icon6" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-429, -215)
 texture = ExtResource("1_w5aja")
 
 [node name="Icon7" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(236, -212)
 texture = ExtResource("1_w5aja")
 
 [node name="Icon8" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-269, 42)
 texture = ExtResource("1_w5aja")
 
 [node name="Enemy_spawner" parent="." instance=ExtResource("5_y3j0m")]
 enemy_scene = ExtResource("3_bw6k5")
-spawn_delay = 0.1
+spawn_delay = 1

@@ -11,7 +11,7 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	player_res.player_movements.x = Input.get_axis("move_left", "move_right")
 	player_res.player_movements.y = Input.get_axis("move_up", "move_down")
-	
+
 	var input_dir := player_res.player_movements.normalized()
 
 	if input_dir != Vector2.ZERO:
