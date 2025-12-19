@@ -1,13 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdv8oci8fr3mx"]
+[gd_scene load_steps=7 format=3 uid="uid://cdv8oci8fr3mx"]
 
 [ext_resource type="Script" uid="uid://d2bkdnhi71gyh" path="res://scripts/main_player/player.gd" id="1_cx6sm"]
 [ext_resource type="Texture2D" uid="uid://cj5boxn577qh5" path="res://icon.svg" id="1_r5asd"]
 [ext_resource type="Resource" uid="uid://cpqq3skrfy6ay" path="res://resources/main_player/player_res.tres" id="2_m355v"]
+[ext_resource type="PackedScene" uid="uid://bdhg51infmfl2" path="res://scenes/bullets/bullet.tscn" id="4_tc374"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m355v"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_m355v"]
+radius = 136.09187
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_cx6sm")
+bullet_scene = ExtResource("4_tc374")
 player_res = ExtResource("2_m355v")
 
 [node name="Icon" type="Sprite2D" parent="."]
@@ -17,9 +22,26 @@ texture = ExtResource("1_r5asd")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_m355v")
 
-[node name="Label" type="Label" parent="."]
+[node name="player_health_label" type="Label" parent="."]
 offset_left = -8.0
 offset_top = -28.0
 offset_right = 8.0
 offset_bottom = -11.0
 text = "20"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_m355v")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="bullet" parent="." instance=ExtResource("4_tc374")]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

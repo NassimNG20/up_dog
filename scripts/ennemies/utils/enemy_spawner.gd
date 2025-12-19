@@ -1,12 +1,11 @@
 extends Node2D
 
-@onready var enemies: Label = $"../player_camera_2D/enemies"
 # Enemy scene to spawn (drag enemy.tscn here in the Inspector)
 @export var enemy_scene: PackedScene
 # Distance from the player where enemies will spawn
 @export var spawn_radius := 600.0
 # Time (in seconds) between each spawn
-@export var spawn_delay: int
+@export var spawn_delay: float
 # Reference to the player node
 var player: Node2D
 var enemies_num: int = 0
@@ -20,7 +19,7 @@ func _ready():
 
 func spawn_loop() -> void:
 	# Infinite loop that spawns enemies every spawn_delay seconds
-	while enemies_num < 300:
+	while enemies_num < 400:
 		await get_tree().create_timer(spawn_delay).timeout
 		spawn_enemy()
 
@@ -28,13 +27,10 @@ func spawn_loop() -> void:
 func spawn_enemy():
 	# Safety check in case the player doesn't exist
 	if not player: return
-	# Create a new enemy instance
 	var enemy = enemy_scene.instantiate()
-	# Add the enemy to the same parent as the spawner
 	get_parent().add_child(enemy)
 	enemies_num = enemies_num + 1
-	enemies.text = str(enemies_num)
-	# Pick a random direction around the player (0 → 360°)
+	Global.enemies_on_screen = enemies_num
 	var angle = randf() * TAU
 	
 	# Convert the angle to a position offset at spawn_radius distance

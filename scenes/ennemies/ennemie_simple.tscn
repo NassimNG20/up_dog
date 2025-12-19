@@ -1,18 +1,20 @@
 [gd_scene load_steps=5 format=3 uid="uid://2c73c2rxlu1x"]
 
-[ext_resource type="Script" uid="uid://c5c3ny6l4fiar" path="res://scripts/ennemies/ennemie_simple.gd" id="1_galhy"]
+[ext_resource type="Script" uid="uid://c5c3ny6l4fiar" path="res://scripts/ennemies/simple_enemie.gd" id="1_galhy"]
 [ext_resource type="Texture2D" uid="uid://cj5boxn577qh5" path="res://icon.svg" id="2_rk54q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_galhy"]
-radius = 9.0
+radius = 12.0415945
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_rk54q"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rk54q"]
+size = Vector2(18, 18)
 
-[node name="Ennemie_simple" type="CharacterBody2D"]
+[node name="Simple_enemie" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_galhy")
-speed = 50.0
+speed = 100.0
+simple_enemie_health = 3.0
 
 [node name="Icon" type="Sprite2D" parent="."]
 scale = Vector2(0.144531, 0.144531)
@@ -24,6 +26,16 @@ shape = SubResource("CircleShape2D_galhy")
 [node name="hit_box" type="Area2D" parent="."]
 
 [node name="hit_box_collision_shape" type="CollisionShape2D" parent="hit_box"]
-shape = SubResource("CircleShape2D_rk54q")
+shape = SubResource("RectangleShape2D_rk54q")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="simple_enemie_label" type="Label" parent="."]
+offset_left = -3.0
+offset_top = -31.0
+offset_right = 8.0
+offset_bottom = -14.0
 
 [connection signal="body_entered" from="hit_box" to="." method="_on_hit_box_body_entered"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

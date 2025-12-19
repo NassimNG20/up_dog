@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://demf3624cg7jd"]
+
+[ext_resource type="Script" uid="uid://bkpsk2dybhvpy" path="res://scripts/canvas_layer/canvas_layer.gd" id="1_4wp0x"]
+[ext_resource type="Resource" uid="uid://cpqq3skrfy6ay" path="res://resources/main_player/player_res.tres" id="2_0dxwr"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_4wp0x")
+player_res = ExtResource("2_0dxwr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 34.0
+offset_top = 33.0
+offset_right = 130.0
+offset_bottom = 73.0
+
+[node name="enemies_num" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "num = 0"
+
+[node name="player_xp" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "player_xp = 0"

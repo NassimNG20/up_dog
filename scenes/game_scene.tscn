@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://ctdmn1p2nso5w"]
 
-[ext_resource type="Texture2D" uid="uid://cj5boxn577qh5" path="res://icon.svg" id="1_w5aja"]
 [ext_resource type="PackedScene" uid="uid://cdv8oci8fr3mx" path="res://scenes/main_player/player.tscn" id="2_onqr8"]
+[ext_resource type="PackedScene" uid="uid://demf3624cg7jd" path="res://scenes/CanvasLayer/canvas_layer.tscn" id="2_y3j0m"]
 [ext_resource type="PackedScene" uid="uid://2c73c2rxlu1x" path="res://scenes/ennemies/ennemie_simple.tscn" id="3_bw6k5"]
 [ext_resource type="PackedScene" uid="uid://cfb1n3vyvkj3a" path="res://scenes/camera/player_camera_2d.tscn" id="3_ycayy"]
 [ext_resource type="PackedScene" uid="uid://dagqx0xyipp0o" path="res://scenes/ennemies/utils/enemy_spawner.tscn" id="5_y3j0m"]
@@ -10,67 +10,12 @@
 
 [node name="player_camera_2D" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_ycayy")]
 position = Vector2(-90, -56)
-zoom = Vector2(2, 2)
 target = NodePath("../Player")
 
-[node name="enemies" type="Label" parent="player_camera_2D"]
-offset_left = -258.0
-offset_top = -129.0
-offset_right = -134.0
-offset_bottom = -112.0
-text = "enemies num = 0"
+[node name="CanvasLayer" parent="player_camera_2D" instance=ExtResource("2_y3j0m")]
 
 [node name="Player" parent="." instance=ExtResource("2_onqr8")]
 position = Vector2(-90, -56)
-
-[node name="Ennemie_simple" parent="." instance=ExtResource("3_bw6k5")]
-position = Vector2(744, -280)
-speed = 100.0
-
-[node name="Icon" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(501, -61)
-scale = Vector2(0.6875, 6.48438)
-texture = ExtResource("1_w5aja")
-
-[node name="Icon2" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(-677, -75)
-scale = Vector2(1, 6.21875)
-texture = ExtResource("1_w5aja")
-
-[node name="Icon3" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(-83.5, -403)
-scale = Vector2(10.5391, 1)
-texture = ExtResource("1_w5aja")
-
-[node name="Icon4" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(-72, 267)
-scale = Vector2(9.73438, 0.421875)
-texture = ExtResource("1_w5aja")
-
-[node name="Icon5" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(223, -6)
-scale = Vector2(0.484375, 0.484375)
-texture = ExtResource("1_w5aja")
-
-[node name="Icon6" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(-429, -215)
-texture = ExtResource("1_w5aja")
-
-[node name="Icon7" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(236, -212)
-texture = ExtResource("1_w5aja")
-
-[node name="Icon8" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(-269, 42)
-texture = ExtResource("1_w5aja")
 
 [node name="Enemy_spawner" parent="." instance=ExtResource("5_y3j0m")]
 enemy_scene = ExtResource("3_bw6k5")
